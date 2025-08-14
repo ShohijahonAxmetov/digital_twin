@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('elements', function (Blueprint $table) {
             $table->id();
             $table->foreignId('equipment_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('refusal_nature_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('refusal_nature_id')->nullable()->constrained()->nullOnDelete()->nullOnUpdate();
             $table->foreignId('parent_id')->nullable()->constrained('elements')->onDelete('cascade')->onUpdate('cascade');
             $table->text('name');
+            $table->datetime('installed_at')->comment('Дата установки');
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ class Element extends Model
     	'equipment_id',
     	'refusal_nature_id',
     	'parent_id',
+    	'installed_at',
     ];
 
     public function equipment()
