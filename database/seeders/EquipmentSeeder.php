@@ -8,12 +8,14 @@ use Illuminate\Database\Seeder;
 
 class EquipmentSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+	private const EQUIPMENTS = [
+		['id' => 1, 'name' => 'Экскаватор №1']
+	];
+	
     public function run(): void
     {
-    	$data = ['name' => 'Экскаватор №1'];
-    	(new EquipmentService)->create($data);
+    	foreach (self::EQUIPMENTS as $item) {
+    		(new EquipmentService)->create($item);
+    	}
     }
 }

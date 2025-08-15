@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="d-flex justify-content-end">
-						<a href="{{route('admin.elements.create')}}" class="btn btn-info">Добавить</a>
+						<a href="{{route('admin.repairs.create')}}" class="btn btn-info">Добавить</a>
 					</div>
 				</div>
 			</div>
@@ -30,23 +30,23 @@
 		                    <tr>
 		                        <th>№</th>
 		                        <th>Оборудование</th>
-		                        <th>Наименование</th>
-		                        <th>Родитель</th>
-		                        <th>Дата установки</th>
+		                        <th>Время начала</th>
+		                        <th>Время окончания</th>
+		                        <th>Запланированные ремонт</th>
 		                        <th>Действия</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                	@foreach($elements as $element)
+		                	@foreach($repairs as $repair)
 		                    <tr>
-		                        <td>{{($elements->currentPage() - 1) * $elements->perPage() + $loop->iteration}}</td>
-		                        <td>{{$element->equipment->name}}</td>
-		                        <td>{{$element->name}}</td>
-		                        <td>{{$element->parent?->name ?? '-'}}</td>
-		                        <td>{{$element->installed_at}}</td>
+		                        <td>{{($repairs->currentPage() - 1) * $repairs->perPage() + $loop->iteration}}</td>
+		                        <td>{{$repair->equipment->name}}</td>
+		                        <td>{{$repair->begin_at}}</td>
+		                        <td>{{$repair->ended_at}}</td>
+		                        <td>{{$repair->is_planned ? 'Да' : 'Нет'}}</td>
 		                        <td>
-		                            <a href="{{route('admin.elements.destroy', ['element' => $element])}}" class="mr-3"><img src="/assets/img/svg/delete.svg" alt="" class="svg"></a>
-		                            <a href="{{route('admin.elements.edit', ['element' => $element])}}"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.repairs.destroy', ['repair' => $repair])}}" class="mr-3"><img src="/assets/img/svg/delete.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.repairs.edit', ['repair' => $repair])}}"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
 		                        </td>
 		                    </tr>
 		                    @endforeach

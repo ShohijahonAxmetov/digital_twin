@@ -53,7 +53,7 @@
                     <span class="link-title">Social Media Analytics</span>
                 </a>
             </li>
-            <li class="nav-category">apps</li>
+            <li class="nav-category">Основные</li>
             <li>
                 <a href="#">
                     <i class="icofont-mail-box"></i>
@@ -74,9 +74,15 @@
                 <!-- End Sub Menu -->
             </li>
             <li>
-                <a href="pages/apps/chat.html">
+                <a href="{{route('admin.downtimes.index')}}">
                     <i class="icofont-wechat"></i>
-                    <span class="link-title">Chat</span>
+                    <span class="link-title">Простои</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('admin.repairs.index')}}">
+                    <i class="icofont-listing-box"></i>
+                    <span class="link-title">Выполненные ремонты</span>
                 </a>
             </li>
             <li>
@@ -551,6 +557,12 @@
                 <a href="{{route('admin.elements.index')}}">
                     <i class="icofont-settings-alt"></i>
                     <span class="link-title">Элементы оборудования</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('admin.downtime_reasons.index')}}">
+                    <i class="icofont-dice"></i>
+                    <span class="link-title">Причины простоев</span>
                 </a>
             </li>
             <li>

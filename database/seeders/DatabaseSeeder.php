@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EquipmentSeeder::class,
             RefusalNatureSeeder::class,
+            DowntimeReasonSeeder::class,
+            DowntimeSeeder::class,
+            ElementSeeder::class,
+            RepairSeeder::class,
         ]);
     }
 }

@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="d-flex justify-content-end">
-						<a href="{{route('admin.elements.create')}}" class="btn btn-info">Добавить</a>
+						<a href="{{route('admin.downtime_reasons.create')}}" class="btn btn-info">Добавить</a>
 					</div>
 				</div>
 			</div>
@@ -29,24 +29,24 @@
 		                <thead>
 		                    <tr>
 		                        <th>№</th>
-		                        <th>Оборудование</th>
-		                        <th>Наименование</th>
-		                        <th>Родитель</th>
-		                        <th>Дата установки</th>
+		                        <th>Ноаименование</th>
+		                        <th>Описание</th>
+		                        <th>Код простоя</th>
+		                        <th>Tag</th>
 		                        <th>Действия</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                	@foreach($elements as $element)
+		                	@foreach($downtime_reasons as $downtimeReason)
 		                    <tr>
-		                        <td>{{($elements->currentPage() - 1) * $elements->perPage() + $loop->iteration}}</td>
-		                        <td>{{$element->equipment->name}}</td>
-		                        <td>{{$element->name}}</td>
-		                        <td>{{$element->parent?->name ?? '-'}}</td>
-		                        <td>{{$element->installed_at}}</td>
+		                        <td>{{($downtime_reasons->currentPage() - 1) * $downtime_reasons->perPage() + $loop->iteration}}</td>
+		                        <td>{{$downtimeReason->name}}</td>
+		                        <td>{{$downtimeReason->desc}}</td>
+		                        <td>{{$downtimeReason->code}}</td>
+		                        <td>-</td>
 		                        <td>
-		                            <a href="{{route('admin.elements.destroy', ['element' => $element])}}" class="mr-3"><img src="/assets/img/svg/delete.svg" alt="" class="svg"></a>
-		                            <a href="{{route('admin.elements.edit', ['element' => $element])}}"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.downtime_reasons.destroy', ['downtime_reason' => $downtimeReason])}}" class="mr-3"><img src="/assets/img/svg/delete.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.downtime_reasons.edit', ['downtime_reason' => $downtimeReason])}}"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
 		                        </td>
 		                    </tr>
 		                    @endforeach

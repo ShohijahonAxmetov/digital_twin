@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\RepairService;
+use App\Services\DowntimeReasonService;
 use Illuminate\Http\Request;
 
-class RepairController extends Controller
+class DowntimeReasonController extends Controller
 {
-    private const PAGE_TITLE = 'Выполненные ремонты';
+    private const PAGE_TITLE = 'Причины простоев';
 
     public function __construct(
-        protected RepairService $repairService,
+        protected DowntimeReasonService $downtimeReasonService,
     ) {}
 
-    public function index()
+    public function index(DowntimeReasonService $downtimeReasonService)
     {
-        return view('repairs.index', [
-            'repairs' => $this->repairService->paginate(),
+        return view('downtime_reasons.index', [
+            'downtime_reasons' => $this->downtimeReasonService->paginate(),
             'pageTitle' => self::PAGE_TITLE
         ]);
     }
@@ -40,7 +40,7 @@ class RepairController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Repair $repair)
+    public function show(DowntimeReason $downtimeReason)
     {
         //
     }
@@ -48,7 +48,7 @@ class RepairController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Repair $repair)
+    public function edit(DowntimeReason $downtimeReason)
     {
         //
     }
@@ -56,7 +56,7 @@ class RepairController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Repair $repair)
+    public function update(Request $request, DowntimeReason $downtimeReason)
     {
         //
     }
@@ -64,7 +64,7 @@ class RepairController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Repair $repair)
+    public function destroy(DowntimeReason $downtimeReason)
     {
         //
     }

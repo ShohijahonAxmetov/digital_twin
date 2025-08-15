@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Element extends Model
+class Downtime extends Model
 {
     protected $fillable = [
-    	'name',
     	'equipment_id',
-    	'refusal_nature_id',
-    	'parent_id',
-    	'installed_at',
+    	'downtime_reason_id',
+    	'begin_at',
+    	'ended_at',
     ];
 
     public function equipment()
@@ -19,8 +18,8 @@ class Element extends Model
     	return $this->belongsTo(Equipment::class);
     }
 
-    public function parent()
+    public function downtimeReason()
     {
-    	return $this->belongsTo(self::class, 'parent_id', 'id');
+    	return $this->belongsTo(DowntimeReason::class);
     }
 }
