@@ -40,17 +40,20 @@ class RepairController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Repair $repair)
+    public function show(int $repairId)
     {
-        //
+        return view('repairs.show', [
+            'repair' => $this->repairService->findById($repairId),
+            'pageTitle' => self::PAGE_TITLE
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Repair $repair)
+    public function edit(int $repairId)
     {
-        //
+        return view('repairs.edit', [
+            'repair' => $this->repairService->findById($repairId),
+            'pageTitle' => self::PAGE_TITLE
+        ]);
     }
 
     /**

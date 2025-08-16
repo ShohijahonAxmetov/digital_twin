@@ -19,6 +19,12 @@ class RepairService
         	->create($data);
 	}
 
+	public function findById(int $id): Repair
+	{
+		return Repair::query()
+        	->findOrFail($id);
+	}
+
 	public function all()
 	{
 		return Repair::query()

@@ -46,7 +46,8 @@
 		                        <td>{{$repair->is_planned ? 'Да' : 'Нет'}}</td>
 		                        <td>
 		                            <a href="{{route('admin.repairs.destroy', ['repair' => $repair])}}" class="mr-3"><img src="/assets/img/svg/delete.svg" alt="" class="svg"></a>
-		                            <a href="{{route('admin.repairs.edit', ['repair' => $repair])}}"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.repairs.edit', ['repair' => $repair])}}" class="mr-3"><img src="/assets/img/svg/c-edit.svg" alt="" class="svg"></a>
+		                            <a href="{{route('admin.repairs.show', ['repair' => $repair])}}"><img src="/assets/img/svg/right-angle.svg" alt="" class="svg"></a>
 		                        </td>
 		                    </tr>
 		                    @endforeach
